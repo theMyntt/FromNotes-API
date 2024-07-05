@@ -16,6 +16,14 @@
     "noImplicitAny": false,
     "strictBindCallApply": false,
     "forceConsistentCasingInFileNames": false,
-    "noFallthroughCasesInSwitch": false
+    "noFallthroughCasesInSwitch": false,
+    "paths": {
+      "@domain/*": ["src/shared/domain/*"],
+      "@utils/*": ["src/shared/utils/*"],
+      "@errors/*": ["src/shared/infra/errors/*"],
+      "@middlewares/*": ["src/shared/infra/middlewares/*"],
+      "@shared/*": ["src/shared/*"],
+      "@src/*": ["src/*"]
+    }
   }
 }
