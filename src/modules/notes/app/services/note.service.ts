@@ -28,7 +28,7 @@ export class NoteService
       page: 1
     })
 
-    if (!user.users[0]._id) {
+    if (!user.users[0]) {
       throw new NotFoundError('user with this id')
     }
 
