@@ -28,9 +28,7 @@ export class UserService
       throw new ConflictError('user')
     }
 
-    this.repository.create(dto)
-
-    return true
+    return await this.repository.create(dto)
   }
 
   async find(dto?: TFiltersRoot): Promise<TFindUserResponse> {
