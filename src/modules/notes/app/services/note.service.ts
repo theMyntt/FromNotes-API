@@ -5,9 +5,10 @@ import { Inject } from '@nestjs/common'
 import { NoteRepository } from '@modules/notes/infra/repositories/note.repository'
 import { UserRepository } from '@modules/user/infra/repositories/user.repository'
 import { NotFoundError } from '@errors/notfound.error'
+import { TFiltersRoot } from '@domain/core/filters.core'
 
 export class NoteService
-  implements IRepositoryContract<Note, TFindNotesResponse>
+  implements IRepositoryContract<Note | TFiltersRoot, TFindNotesResponse>
 {
   constructor(
     @Inject('I_NOTE_REPOSITORY')
@@ -34,6 +35,15 @@ export class NoteService
 
     return await this.repository.create(dto)
   }
-  find: (dto?: Note) => Promise<TFindNotesResponse>
+  async find(dto?: TFiltersRoot): Promise<TFindNotesResponse> {
+    const { filters, limit, page } = dto || { filters: [], limit: 10, page: 1 }
+    const { notes, total } = await this.repository.find({
+      filters,
+      limit,
+      page
+    })
+
+    return { notes, total }
+  }
   delete: (dto: Note) => Promise<boolean>
 }
