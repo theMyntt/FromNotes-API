@@ -1,6 +1,7 @@
 import { Module } from '@nestjs/common'
 import { MongooseModule } from '@nestjs/mongoose'
 import { Note, NoteSchema } from './schema/note.schema'
+import { NoteRepository } from './repositories/note.repository'
 
 @Module({
   imports: [
@@ -10,6 +11,12 @@ import { Note, NoteSchema } from './schema/note.schema'
         schema: NoteSchema
       }
     ])
+  ],
+  providers: [
+    {
+      provide: 'I_NOTE_REPOSITORY',
+      useClass: NoteRepository
+    }
   ]
 })
 export class NoteModule {}
