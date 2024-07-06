@@ -28,8 +28,8 @@ export class NotesSyncOutUseCase
 
     const lastNotes = await this.service.find({
       filters: [],
-      limit,
-      page
+      limit: 3,
+      page: 1
     })
 
     return {
