@@ -26,6 +26,6 @@ export class UserAggregate {
     this.phone = dto.phone
     this.password = dto.password
     this.createdAt = dto.createdAt || new Date()
-    this.updatedAt = dto.updatedAt || new Date()
+    this.updatedAt = new Date()
   }
 }
