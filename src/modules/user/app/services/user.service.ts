@@ -24,7 +24,7 @@ export class UserService
       page: 1
     })
 
-    if (user) {
+    if (user.users[0]) {
       throw new ConflictError('user')
     }
 
