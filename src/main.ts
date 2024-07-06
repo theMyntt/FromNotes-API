@@ -4,7 +4,7 @@ import { env } from './config/enviroment'
 import { Logger, ValidationPipe } from '@nestjs/common'
 
 async function bootstrap() {
-  const app = await NestFactory.create(AppModule)
+  const app = await NestFactory.create(AppModule, { cors: true })
 
   app.useGlobalPipes(new ValidationPipe())
 
