@@ -1,6 +1,6 @@
 import { UUID } from '@utils/uuid.utils'
 
-type TUserModel {
+type TUserModel = {
   id?: string
   name: string
   email: string
