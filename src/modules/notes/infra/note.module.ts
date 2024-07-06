@@ -8,9 +8,11 @@ import { UserRepository } from '@modules/user/infra/repositories/user.repository
 import { NotesSyncInUseCase } from '../app/usecases/sync-in.usecase'
 import { NoteService } from '../app/services/note.service'
 import { NotesSyncInController } from './controllers/sync-in.controller'
+import { NotesSyncOutUseCase } from '../app/usecases/sync-out.usecase'
+import { NotesSyncOutController } from './controllers/sync-out.controller'
 
 @Module({
-  controllers: [NotesSyncInController],
+  controllers: [NotesSyncInController, NotesSyncOutController],
   imports: [
     MongooseModule.forFeature([
       {
@@ -27,6 +29,10 @@ import { NotesSyncInController } from './controllers/sync-in.controller'
     {
       provide: 'I_SYNC_IN_USECASE',
       useClass: NotesSyncInUseCase
+    },
+    {
+      provide: 'I_SYNC_OUT_USECASE',
+      useClass: NotesSyncOutUseCase
     },
     {
       provide: 'I_NOTE_MAPPER',
