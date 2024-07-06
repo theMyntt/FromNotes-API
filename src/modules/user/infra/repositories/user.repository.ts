@@ -21,6 +21,28 @@ export class UserRepository
       return false
     }
   }
-  find: (dto?: TFiltersRoot) => Promise<TFindUserResponse>
-  delete: (dto: User) => Promise<boolean>
+
+  async find(dto?: TFiltersRoot): Promise<TFindUserResponse> {
+    const { filters, limit, page } = dto || { filters: [], limit: 10, page: 1 }
+    const query = this.model.find()
+
+    filters.forEach((filter) => {
+      query.where(filter.field).equals(filter.value)
+    })
+
+    query.limit(limit).skip((page - 1) * limit)
+    const users = await query.exec()
+    const total = await this.model.countDocuments(query.getQuery()).exec()
+
+    return { users, total }
+  }
+
+  async delete(dto: User): Promise<boolean> {
+    try {
+      await this.model.deleteOne({ _id: dto._id }).exec()
+      return true
+    } catch {
+      return false
+    }
+  }
 }
