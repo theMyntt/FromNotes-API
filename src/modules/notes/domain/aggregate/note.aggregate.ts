@@ -21,6 +21,7 @@ export class NoteAggregate {
     this.id = dto.id || UUID.generate()
     this.title = dto.title
     this.text = dto.text
+    this.createdBy = dto.createdBy
     this.createdAt = dto.createdAt || new Date()
     this.updatedAt = new Date()
   }
