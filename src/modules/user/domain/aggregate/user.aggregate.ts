@@ -1,5 +1,15 @@
 import { UUID } from '@utils/uuid.utils'
 
+type TUserModel {
+  id?: string
+  name: string
+  email: string
+  phone: string
+  password: string
+  createdAt?: Date
+  updatedAt?: Date
+}
+
 export class UserAggregate {
   readonly id: string
   name: string
@@ -9,7 +19,7 @@ export class UserAggregate {
   readonly createdAt: Date
   readonly updatedAt: Date
 
-  constructor(dto: UserAggregate) {
+  constructor(dto: TUserModel) {
     this.id = dto.id || UUID.generate()
     this.name = dto.name
     this.email = dto.email
