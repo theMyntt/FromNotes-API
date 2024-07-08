@@ -8,9 +8,8 @@
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\"",
-    "start": "node --env-file=.env node_modules/.bin/nest start",
-    "start:dev": "node --env-file=.env node_modules/.bin/nest start --watch",
-    "start:debug": "node --env-file=.env node_modules/.bin/nest start --debug --watch",
+    "start": "node -r ts-node/register --env-file=.env -r tsconfig-paths/register src/main.ts",
+    "start:debug": "node -r ts-node/register --env-file=.env -r tsconfig-paths/register --inspect src/main.ts",
     "start:prod": "node --env-file=dist/.env dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix"
   },
