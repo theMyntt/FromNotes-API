@@ -6,6 +6,9 @@ export class User {
   _id: string
 
   @Prop({ type: String, required: true })
+  fhsId: string
+
+  @Prop({ type: String, required: true })
   name: string
 
   @Prop({ type: String, required: true })

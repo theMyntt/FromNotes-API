@@ -1,11 +1,11 @@
 import { IUseCaseContract } from '@domain/contracts/usecase.contract'
 import { TResultRoot } from '@domain/core/result.core'
-import { SyncInUserDTO } from '@modules/user/infra/dto/sync-in.dto'
 import { Inject } from '@nestjs/common'
 import { UserService } from '../services/user.service'
 import { UserAggregate } from '@modules/user/domain/aggregate/user.aggregate'
 import { UserMapper } from '@modules/user/domain/mapper/user.mapper'
 import { CantCreateError } from '@errors/cantcreate.error'
+import { SyncInUserDTO } from '@modules/user/infra/dto/sync-in.dto'
 
 export class UserSyncInUseCase
   implements IUseCaseContract<SyncInUserDTO, TResultRoot>

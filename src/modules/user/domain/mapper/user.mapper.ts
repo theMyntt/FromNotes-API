@@ -6,6 +6,7 @@ export class UserMapper implements IMapperContract<User, UserAggregate> {
   toDomain(dto: User): UserAggregate {
     return new UserAggregate({
       id: dto._id,
+      fhsId: dto.fhsId,
       name: dto.name,
       email: dto.email,
       phone: dto.phone,
@@ -18,6 +19,7 @@ export class UserMapper implements IMapperContract<User, UserAggregate> {
   toPersistance(dto: UserAggregate): User {
     return {
       _id: dto.id,
+      fhsId: dto.fhsId,
       name: dto.name,
       email: dto.email,
       phone: dto.phone,

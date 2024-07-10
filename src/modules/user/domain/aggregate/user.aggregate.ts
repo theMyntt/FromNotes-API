@@ -2,6 +2,7 @@ import { UUID } from '@utils/uuid.utils'
 
 type TUserModel = {
   id?: string
+  fhsId?: string
   name: string
   email: string
   phone: string
@@ -12,6 +13,7 @@ type TUserModel = {
 
 export class UserAggregate {
   readonly id: string
+  readonly fhsId: string
   name: string
   email: string
   phone: string
@@ -21,6 +23,7 @@ export class UserAggregate {
 
   constructor(dto: TUserModel) {
     this.id = dto.id || UUID.generate()
+    this.fhsId = dto.fhsId || UUID.internalID()
     this.name = dto.name
     this.email = dto.email
     this.phone = dto.phone
