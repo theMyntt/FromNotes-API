@@ -6,7 +6,10 @@ import { NoteModule } from './notes/infra/note.module'
 
 @Module({
   imports: [
-    MongooseModule.forRoot(`${env.MONGO.URI}:${env.MONGO.PORT}/fromnotes_db`),
+    MongooseModule.forRoot(
+      env.MONGO.URI,
+      {dbName: env.MONGO.DATABASE}
+    ),
     UserModule,
     NoteModule
   ]

@@ -1,6 +1,6 @@
 import { IsNotEmpty, IsString } from 'class-validator'
 
-export class SyncInUserDTO {
+export class !SyncInUserDTO {
   @IsNotEmpty()
   @IsString()
   name: string

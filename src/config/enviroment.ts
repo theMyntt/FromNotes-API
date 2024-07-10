@@ -5,8 +5,6 @@ export const env = {
   NODE_PORT: get('NODE_PORT').default(1024).asInt(),
   MONGO: {
     URI: get('MONGO_URI').required().asString(),
-    PORT: get('MONGO_PORT').required().asInt(),
-    USER: get('MONGO_USER').asString(),
-    PASSWORD: get('MONGO_PASSWORD').asString()
+    DATABASE: get('MONGO_DATABASE').required().asString(),
   }
 }

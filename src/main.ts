@@ -13,7 +13,7 @@ async function bootstrap() {
   Logger.log(`==== ${env.NODE_ENV} ====`)
   Logger.log(`Application listening at ${env.NODE_PORT} port`)
   Logger.log(
-    `MongoDB connected at ${env.MONGO.URI}:${env.MONGO.PORT}/fromnotes_db`
+    `MongoDB connected at ${env.MONGO.URI}`
   )
 }
 bootstrap()
